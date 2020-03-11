@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Change Password</title>
+	<title>Registration Page</title>
+</head>
+<body>
 
-	</head>
+	<form method="POST" action="Login.php">
+		<fieldset>
+			<legend>
+				Registration
+			</legend>
 	<body>
 
 		<form>
@@ -19,8 +25,11 @@
 				
 				--------------------------------------------------<br>
 
-				<input type="button" name="Change" value="Change">
+				<input type="submit" name="submit" value="Create password">
+				<a href="changepassverif.php"></a>
 				<u><a href="Login.php">Home</a></u>
+				
+
 
 				
 

@@ -1,27 +1,54 @@
 <?php
 
-session_start();
-
 if(isset($_REQUEST['submit']))
 {
-	$id=$_REQUEST['uidl'];
-	$password=$_REQUEST['upasswordl'];
-	$cpassword=$_REQUEST['cupassword'];
-	$name=$_REQUEST['uname'];
-	$usertype=$_REQUEST['usertype'];
+	if(empty($_REQUEST['rname']) || empty($_REQUEST['rid']) || empty($_REQUEST['rpassword']) || empty($_REQUEST['rconfirmpassword']) || empty($_REQUEST['gender']) || empty($_REQUEST['remail'])||empty($_REQUEST['rdate'])|| empty($_REQUEST['rbloodgroup']) )
+		{
+		echo "Field Cannot Be Empty";
+		header("location:Registration.php");
 
-	if(empty(trim($id))|| empty(trim($password)||empty(trim($cpassword)||empty(trim($name)||empty(trim($usertype)))
-	{
-		echo "Null submission found!";
-	}
+		}
+
+	/*elseif (!preg_match("/^[a-zA-Z ]*$/",$_REQUEST['rname']) {
+		echo "Not allowed";
+	}*/
 	else
 	{
-				
-			}else
+
+		if($_REQUEST['rpassword']==$_REQUEST['rconfirmpassword'])
+		{
+			/*$data=$_REQUEST['date'];
+			$data.=$_REQUEST['month'];
+			$data.=$_REQUEST['year'];*/
+
+			$name=$_REQUEST['rname'];
+			/*if (!preg_match("/^[a-zA-Z ]*$/",$name)) 
 			{
-				echo "invalid uname/password";
-			}
+      			$nameErr = "Only letters and white space allowed";
+    		}*/
+			$id=$_REQUEST['rid'];
+			$password=$_REQUEST['rpassword'];
+			$gender=$_REQUEST['gender'];
+			$email=$_REQUEST['remail'];
+			
+			$dob=$_REQUEST['rdate'];
+			$bg=$_REQUEST['rbloodgroup'];
+		
+			$myfile=fopen('verify.txt','a');
+			fwrite($myfile,"$name|$id|$password|$gender|$email|$dob|$bg\r\n");
+			fclose($myfile);
+			header("location:Login.php");
+		}
+		else
+		{
+			echo "Password Didnt Match";
+
+		}
 	}
+}
+else
+{
+	header("location:Registration.php");
 }
 
 ?>

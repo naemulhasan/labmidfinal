@@ -1,27 +1,24 @@
-<?php
-	session_start();
-?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>LOG IN</title>
-	</head>
-	<body>
-		<form method="POST" action="logvalidation.php">
+	<title>Login Page</title>
+</head>
+<body>
 
-			<fieldset>
-				<legend>LOGIN</legend>
-				User ID<br>
-				<input type="number" name="uidl" value=""><br>
-				Password<br>
-				<input type="password" name="upasswordl" value=""><br>
-				--------------------------------------------<br>
-				<input type="submit" name="submit" value="LOGIN">
-				
-				<u><a href="Registration.php">Register</a></u>
-
-			</fieldset>
-
-		</form>
-	</body>
+	<center><form method="POST" action="logvalidation.php">
+		<fieldset>
+			<legend>
+				LOGIN
+			</legend>
+				<center>
+							User ID: <br>
+							<input type="text" name="uid" value=""> <br>
+							Password: <br>
+							<input type="password" name="upassword"> <br> <br>
+							<input type="submit" name="submit" value="Log In">
+							<u><a href="Registration.php">Registration</a></u>
+				</center>
+		</fieldset>
+	</form>
+</body>
 </html>
